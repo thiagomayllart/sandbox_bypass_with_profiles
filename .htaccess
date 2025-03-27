@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Only apply these rules for requests to /mypac.pac
+RewriteCond %{REQUEST_URI} ^/mypac\.pac$ [NC]
+# Check if the User-Agent header contains "Firefox" (case-insensitive)
+RewriteCond %{HTTP_USER_AGENT} Firefox [NC]
+# Deny access by returning a 403 Forbidden
+RewriteRule .* - [F,L]

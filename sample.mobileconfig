@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadDisplayName</key>
+  <string>Microsoft Office365</string>
+  <key>PayloadIdentifier</key>
+  <string>com.example.combined.profile</string>
+  <key>PayloadType</key>
+  <string>Configuration</string>
+  <key>PayloadUUID</key>
+  <string>combined-uuid-1234-5678</string>
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>PayloadDescription</key>
+      <string>Microsoft Office365</string>
+      <key>PayloadDisplayName</key>
+      <string>Microsoft Office365</string>
+      <key>PayloadIdentifier</key>
+      <string>com.apple.proxy.http.global.CF237754-A774-4832-A507-E944FB58A670</string>
+      <key>PayloadType</key>
+      <string>com.apple.proxy.http.global</string>
+      <key>PayloadUUID</key>
+      <string>CF237754-A774-4832-A507-E944FB58A670</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>ProxyCaptiveLoginAllowed</key>
+      <true/>
+      <key>ProxyType</key>
+      <string>Auto</string>
+      <key>ProxyPACURL</key>
+      <string>https://somedomain.com/mypac.pac</string>
+    </dict>
+
+    <dict>
+      <key>PayloadCertificateFileName</key>
+      <string>Certificate</string>
+      <key>PayloadContent</key>
+      <data>
+        PLACE_YOUR_MITM_BASE64_CERTIFICATE_HERE
+      </data>
+      <key>PayloadDisplayName</key>
+      <string>Certificate</string>
+      <key>PayloadIdentifier</key>
+      <string>com.github.ahhh.cert.payload</string>
+      <key>PayloadType</key>
+      <string>com.apple.security.pkcs1</string>
+      <key>PayloadUUID</key>
+      <string>73e57ba6-65e9-4abf-a62e-45273daf2584</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+    </dict>
+  </array>
+</dict>
+</plist>
+

